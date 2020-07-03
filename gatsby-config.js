@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `End Of The Reel`,
+    description: `End Of The Reel is a podcast about bad movies that are so bad they're good`,
+    author: `@JarrByte`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

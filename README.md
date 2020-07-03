@@ -1,3 +1,11 @@
+# Using Gatsby, used the default starter to get started
+
+Goal of this is to allow for a static site, that'll take in my podcast.
+Design inspiration from [Syntax Podcast](https://syntax.fm)
+
+## TODO
+
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
