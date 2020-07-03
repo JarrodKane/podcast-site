@@ -27,6 +27,21 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-source-rss-feed`,
+      options: {
+        url: `https://pinecast.com/feed/end-of-the-reel`,
+        // url: `https://www.gatsbyjs.org/blog/rss.xml`,
+        name: `Podcast`,
+        // Optional
+        // Read parser document: https://github.com/bobby-brennan/rss-parser#readme
+        parserOption: {
+          customFields: {
+            item: ['itunes:duration'],
+          },
+        },
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
