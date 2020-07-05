@@ -1,14 +1,23 @@
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
+import styled from 'styled-components'
+
+import dots from '../images/dots.png'
+const HeaderCon = styled.header`
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.18) 5.83%,
+      rgba(34, 34, 34, 0.78) 92.65%
+    ),
+    linear-gradient(0deg, rgba(255, 0, 0, 0.4), rgba(255, 0, 0, 0.4)),
+    url(${dots}), #910000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 1.45rem;
+`
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
+  <HeaderCon>
     <div
       style={{
         margin: `0 auto`,
@@ -28,7 +37,7 @@ const Header = ({ siteTitle }) => (
         </Link>
       </h1>
     </div>
-  </header>
+  </HeaderCon>
 )
 
 Header.propTypes = {
