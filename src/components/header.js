@@ -14,17 +14,38 @@ const HeaderCon = styled.header`
     url(${dots}), #910000;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin-bottom: 1.45rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+`
+const LinkSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0 2rem 0 3rem;
+`
+const Title = styled.div`
+  padding: 1.45rem 3.0875rem;
+`
+const Menu = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+`
+const MenuLink = styled(props => <Link {...props} />)`
+  color: white;
+  padding-right: 1.5rem;
+  font-size: 1.3rem;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
 `
 
+//  margin: 0 auto;
+// padding: 1.45rem 1.0875rem;
 const Header = ({ siteTitle }) => (
   <HeaderCon>
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
+    <Title>
       <h1 style={{ margin: 0 }}>
         <Link
           to="/"
@@ -36,7 +57,14 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
-    </div>
+    </Title>
+    <LinkSection>
+      <Menu>
+        <MenuLink to="/about">ABOUT</MenuLink>
+        <MenuLink to="/contact">CONTACT</MenuLink>
+      </Menu>
+      <div>Socials</div>
+    </LinkSection>
   </HeaderCon>
 )
 
