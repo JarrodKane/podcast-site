@@ -4,6 +4,9 @@ import React from 'react'
 import styled from 'styled-components'
 
 import dots from '../images/dots.png'
+import spotify from '../images/Spotify_Logo_RGB_Green.png'
+import applePodcasts from '../images/US_UK_Apple_Podcasts_Listen_Color_Lockup_RGB_Wht_Type.png'
+import youtube from '../images/youtube_social_icon_red.png'
 
 const HeaderCon = styled.header`
   background: linear-gradient(
@@ -31,15 +34,21 @@ const Title = styled.div`
 const Menu = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0.5rem;
 `
 const MenuLink = styled(props => <Link {...props} />)`
   color: white;
-  padding-right: 1.5rem;
   font-size: 1.3rem;
   text-decoration: none;
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
+`
+const Image = styled.img`
+  padding: 0.5em 1em;
+  height: 2.5em;
+  margin: 0;
 `
 
 //  margin: 0 auto;
@@ -64,7 +73,29 @@ const Header = ({ siteTitle }) => (
         <MenuLink to="/about">ABOUT</MenuLink>
         <MenuLink to="/contact">CONTACT</MenuLink>
       </Menu>
-      <div>Socials</div>
+      <div>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.youtube.com/playlist?list=PLZvq_TDBtARrBlLzDOFgm_ciU0akessl4"
+        >
+          <Image src={youtube} alt="Youtube logo" />
+        </a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://open.spotify.com/show/3Gk38MEFuJmVnt3rYzOopW?si=VFqP9FMUR0ePKTCvt-F_Qw"
+        >
+          <Image src={spotify} alt="Spotify logo" />
+        </a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://podcasts.apple.com/podcast/end-of-the-reel/id1466457494"
+        >
+          <Image src={applePodcasts} alt="Apple podcasts logo" />
+        </a>
+      </div>
     </LinkSection>
   </HeaderCon>
 )
