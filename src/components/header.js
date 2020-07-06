@@ -4,6 +4,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import dots from '../images/dots.png'
+
 const HeaderCon = styled.header`
   background: linear-gradient(
       180deg,
