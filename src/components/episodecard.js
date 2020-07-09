@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import ReactMarkdown from 'react-markdown/with-html'
 
 import EpisodeCardHeader from './episodeCardHeader'
 
@@ -29,12 +30,14 @@ const EpContent = styled.div`
 
 const EpisodeCard = ({ Episode }) => {
   const { title, content, link } = Episode
-  console.log(title)
+
   return (
     <Card>
       <EpisodeCardHeader EpTitle={title} />
       <EpMain>
-        <EpContent>{content}</EpContent>
+        <EpContent>
+          <ReactMarkdown source={content} escapeHtml={false} />
+        </EpContent>
         <EpContent>Card Socials and icon</EpContent>
       </EpMain>
     </Card>
