@@ -13,13 +13,9 @@ const Container = styled.footer`
   background-color: pink;
 `
 
-const Player = ({ siteTitle, Socials }) => (
+const Player = () => (
   <Container>
-    <div>
-      © {new Date().getFullYear()}, Built with
-      {` `}
-      <a href="https://www.gatsbyjs.org">Gatsby</a>
-    </div>
+    <div></div>
     <div>Social</div>
     <div>Social</div>
   </Container>

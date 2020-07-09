@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 
 import EpisodeCard from '../components/episodecard'
 import Layout from '../components/layout'
@@ -31,6 +31,7 @@ const PODCAST_FEED = graphql`
 
 const IndexPage = () => {
   const [episodeNum, setEpisodeNum] = useState(0)
+  const [episodePlaying, setEpisodePlaying] = useState(0)
   const data = useStaticQuery(PODCAST_FEED)
   const PodcastFeed = data.allFeedPodcast.nodes
   console.log(PodcastFeed)
@@ -43,14 +44,11 @@ const IndexPage = () => {
     <Layout>
       <SEO title="End Of The Reel" />
       <div>
-        <h1>PLayer</h1>
         <button onClick={() => setEpisodeNum(episodeNum + 1)}>
           {episodeNum}
         </button>
       </div>
       <EpisodeCard Episode={PodcastFeed[episodeNum]} />
-      <Link to="/about/">About</Link> <br />
-      <Link to="/contact/">Contact</Link>
     </Layout>
   )
 }

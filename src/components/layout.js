@@ -10,9 +10,14 @@ import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
-import Player from './player'
+import styled from 'styled-components'
 import './layout.css'
 import '../styles/global.css'
+
+const LayoutWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 
 const PODCAST_META_QUERY = graphql`
   query PodcastMeta {
@@ -34,7 +39,7 @@ const Layout = ({ children }) => {
 
   //  console.log(data)
   return (
-    <>
+    <LayoutWrapper>
       <Header siteTitle={data.allFeedPodcastMeta.edges[0].node.title} />
       <div
         style={{
@@ -44,12 +49,8 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
-        <Player
-          siteTitle={data.allFeedPodcastMeta.edges[0].node.title}
-          Socials={-1}
-        />
       </div>
-    </>
+    </LayoutWrapper>
   )
 }
 
