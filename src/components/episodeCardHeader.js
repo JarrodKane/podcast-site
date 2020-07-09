@@ -17,11 +17,11 @@ const Line = styled.div`
   margin: 1rem;
 `
 
-const EpisodeCardHeader = () => (
+const EpisodeCardHeader = ({ EpTitle }) => (
   <HeaderCon>
     <Metahead>
       <div>Play Button</div>
-      <div>Title</div>
+      <div>{EpTitle}</div>
     </Metahead>
     <Line />
   </HeaderCon>

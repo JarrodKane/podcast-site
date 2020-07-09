@@ -27,24 +27,18 @@ const EpContent = styled.div`
   }
 `
 
-const EpisodeCard = () => (
-  <Card>
-    <EpisodeCardHeader />
-    <EpMain>
-      <EpContent>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eleifend
-        at risus et congue. Donec consectetur lorem eget nunc aliquam, eget
-        bibendum metus posuere. Donec vulputate imperdiet hendrerit. Maecenas
-        malesuada vestibulum ornare. Etiam facilisis nibh in neque eleifend, eu
-        aliquet neque cursus. Quisque pretium interdum turpis, non imperdiet
-        tellus molestie ac. Vivamus tempor ipsum enim, quis mattis dolor
-        faucibus non. Vivamus eget ligula a tellus finibus ultricies ut nec
-        felis. Cras nec justo arcu. Ut pharetra scelerisque ultricies. Maecenas
-        mattis nec diam id auctor.{' '}
-      </EpContent>
-      <EpContent>Card Socials and icon</EpContent>
-    </EpMain>
-  </Card>
-)
+const EpisodeCard = ({ Episode }) => {
+  const { title, content, link } = Episode
+  console.log(title)
+  return (
+    <Card>
+      <EpisodeCardHeader EpTitle={title} />
+      <EpMain>
+        <EpContent>{content}</EpContent>
+        <EpContent>Card Socials and icon</EpContent>
+      </EpMain>
+    </Card>
+  )
+}
 
 export default EpisodeCard

@@ -32,7 +32,7 @@ const PODCAST_META_QUERY = graphql`
 const Layout = ({ children }) => {
   const data = useStaticQuery(PODCAST_META_QUERY)
 
-  console.log(data)
+  //  console.log(data)
   return (
     <>
       <Header siteTitle={data.allFeedPodcastMeta.edges[0].node.title} />
