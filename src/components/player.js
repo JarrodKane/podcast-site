@@ -1,7 +1,6 @@
 import { Link } from 'gatsby'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 const Container = styled.footer`
   margin: 2rem auto;
@@ -12,13 +11,39 @@ const Container = styled.footer`
   justify-content: center;
   background-color: pink;
 `
+const useAudio = url => {
+  const [audio] = useState(new Audio(url))
+  const [playing, setPlaying] = useState(false)
 
-const Player = () => (
-  <Container>
-    <div></div>
-    <div>Social</div>
-    <div>Social</div>
-  </Container>
-)
+  const toggle = () => setPlaying(!playing)
+
+  useEffect(() => {
+    playing ? audio.play() : audio.pause()
+  }, [playing])
+
+  useEffect(() => {
+    audio.addEventListener('ended', () => setPlaying(false))
+    return () => {
+      audio.removeEventListener('ended', () => setPlaying(false))
+    }
+  }, [])
+
+  return [playing, toggle]
+}
+
+const Player = ({ url }) => {
+  console.log(url)
+  const [playing, toggle] = useAudio(url)
+
+  return (
+    <Container>
+      <div></div>
+      <div>
+        <button onClick={toggle}>{playing ? 'Pause' : 'Play'}</button>
+      </div>
+      <div>Social</div>
+    </Container>
+  )
+}
 
 export default Player
