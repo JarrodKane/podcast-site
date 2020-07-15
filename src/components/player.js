@@ -11,37 +11,18 @@ const Container = styled.footer`
   justify-content: center;
   background-color: pink;
 `
-const useAudio = url => {
-  const [audio] = useState(new Audio(url))
-  const [playing, setPlaying] = useState(false)
-
-  const toggle = () => setPlaying(!playing)
-
-  useEffect(() => {
-    playing ? audio.play() : audio.pause()
-  }, [playing])
-
-  useEffect(() => {
-    audio.addEventListener('ended', () => setPlaying(false))
-    return () => {
-      audio.removeEventListener('ended', () => setPlaying(false))
-    }
-  }, [])
-
-  return [playing, toggle]
-}
 
 const Player = ({ url }) => {
-  console.log(url)
-  const [playing, toggle] = useAudio(url)
+  console.log('This is the URL ' + url)
+  console.log('Called')
 
   return (
     <Container>
-      <div></div>
       <div>
-        <button onClick={toggle}>{playing ? 'Pause' : 'Play'}</button>
+        <audio key={url} controls style={{ width: '100%' }}>
+          <source src={url} type="audio/mpeg" />
+        </audio>
       </div>
-      <div>Social</div>
     </Container>
   )
 }

@@ -1,17 +1,23 @@
 import React, { useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+import styled from 'styled-components'
 
 import EpisodeCard from '../components/episodecard'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
+import Player from '../components/player'
+import Playlist from '../components/playlist'
 
 // Query to get the podcast feed
 const PODCAST_FEED = graphql`
   query MyQuery {
     allFeedPodcast {
       nodes {
+        enclosure {
+          length
+          url
+        }
         title
-        link
         content
       }
     }
@@ -29,6 +35,11 @@ const PODCAST_FEED = graphql`
   }
 `
 
+const MainWrap = styled.div`
+  display: flex;
+  flex-direction: row;
+`
+
 const IndexPage = () => {
   const [episodeNum, setEpisodeNum] = useState(0)
   const [episodePlaying, setEpisodePlaying] = useState(0)
@@ -43,12 +54,14 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="End Of The Reel" />
-      <div>
+      <MainWrap>
+        <Playlist />
         <button onClick={() => setEpisodeNum(episodeNum + 1)}>
           {episodeNum}
         </button>
-      </div>
-      <EpisodeCard Episode={PodcastFeed[episodeNum]} />
+        <EpisodeCard Episode={PodcastFeed[episodeNum]} />
+      </MainWrap>
+      <Player url={PodcastFeed[episodeNum].enclosure.url} />
     </Layout>
   )
 }
